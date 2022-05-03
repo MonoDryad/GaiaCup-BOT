@@ -1,4 +1,4 @@
-const { Client, Intents, MessageEmbed  } = require('discord.js')
+const { Client, Intents, MessageEmbed, TextChannel } = require('discord.js')
 const { ReactionRole } = require("discordjs-reaction-role")
 const client = new Client({
   intents: [
@@ -36,66 +36,72 @@ const rr = new ReactionRole(client, [
 // tabela A
 
 const tabelaA = new MessageEmbed()
-	.setColor('#0099ff')
-	.setTitle('Grupo A')
-	.setDescription('Tabela do GRUPO A da Quarta Edição da Gaia Cup')
-	.addFields(
-		{ name: '1º Eight Divine Ways - 4/0', value: 'EDW' },
+  .setColor('#0099ff')
+  .setTitle('Grupo A')
+  .setDescription('Tabela do GRUPO A da Quarta Edição da Gaia Cup')
+  .addFields(
+    { name: '1º Eight Divine Ways - 4/0', value: 'EDW' },
     { name: '2º Phoenix Gaming Academy - 2/2', value: 'PGA' },
     { name: '3º Phoenix Warriors Gaming - 0/2', value: 'PWG [DESISTENTE]' })
-	.setTimestamp()
-	.setFooter({ text: 'Visite a o site da Gaia Cup', iconURL: 'https://gaiacup.netlify.app/images/dourando.png' });
+  .setTimestamp()
+  .setFooter({ text: 'Visite a o site da Gaia Cup', iconURL: 'https://gaiacup.netlify.app/images/dourando.png' });
 
 // // // //
 
 const tabelaB = new MessageEmbed()
-	.setColor('#0099ff')
-	.setTitle('Grupo B')
-	.setDescription('Tabela do GRUPO B da Quarta Edição da Gaia Cup')
-	.addFields(
-		{ name: '1º Orange Kingdom Owari - 3/1', value: 'OKO' },
+  .setColor('#0099ff')
+  .setTitle('Grupo B')
+  .setDescription('Tabela do GRUPO B da Quarta Edição da Gaia Cup')
+  .addFields(
+    { name: '1º Orange Kingdom Owari - 3/1', value: 'OKO' },
     { name: '2º Black Diamond E-sports - 2/2', value: 'BDD' },
     { name: '3º NAOKI White - 1/3', value: 'NKI' })
-	.setTimestamp()
-	.setFooter({ text: 'Visite a o site da Gaia Cup', iconURL: 'https://gaiacup.netlify.app/images/dourando.png' });
+  .setTimestamp()
+  .setFooter({ text: 'Visite a o site da Gaia Cup', iconURL: 'https://gaiacup.netlify.app/images/dourando.png' });
 
 // // // //
 
 const tabelaC = new MessageEmbed()
-	.setColor('#0099ff')
-	.setTitle('Grupo C')
-	.setDescription('Tabela do GRUPO C da Quarta Edição da Gaia Cup')
-	.addFields(
-		{ name: '1º Phoenix Gaming Galaxy - 3/1', value: 'PGG' },
+  .setColor('#0099ff')
+  .setTitle('Grupo C')
+  .setDescription('Tabela do GRUPO C da Quarta Edição da Gaia Cup')
+  .addFields(
+    { name: '1º Lotus Galaxy - 3/1', value: 'LG' },
     { name: '2º Orange Kingdom Umayyad - 3/1', value: 'OKU' },
     { name: '3º Team NoWay - 0/4', value: 'TNW' })
-	.setTimestamp()
-	.setFooter({ text: 'Visite a o site da Gaia Cup', iconURL: 'https://gaiacup.netlify.app/images/dourando.png' });
+  .setTimestamp()
+  .setFooter({ text: 'Visite a o site da Gaia Cup', iconURL: 'https://gaiacup.netlify.app/images/dourando.png' });
 
 // // // //
 
 const tabelaD = new MessageEmbed()
-	.setColor('#0099ff')
-	.setTitle('Grupo D')
-	.setDescription('Tabela do GRUPO D da Quarta Edição da Gaia Cup')
-	.addFields(
-		{ name: '1º NEO Akihabara - 4/0', value: 'AKH' },
+  .setColor('#0099ff')
+  .setTitle('Grupo D')
+  .setDescription('Tabela do GRUPO D da Quarta Edição da Gaia Cup')
+  .addFields(
+    { name: '1º NEO Akihabara - 4/0', value: 'AKH' },
     { name: '2º Team Suits - 1/3', value: 'TSS' },
     { name: '3º Dark Tenacity - 1/3', value: 'DKA' })
-	.setTimestamp()
-	.setFooter({ text: 'Visite a o site da Gaia Cup', iconURL: 'https://gaiacup.netlify.app' });
+  .setTimestamp()
+  .setFooter({ text: 'Visite a o site da Gaia Cup', iconURL: 'https://gaiacup.netlify.app' });
 
 // // // //
+
+  var hr = 0;
+  var min = 0;
+  var sec = 0;
+  var stoptime = false;
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 })
 
+
 client.on('messageCreate',
   function(msg) {
     let oldUserName = msg.author.username
     if (msg.channel.id === '970862448569626645') {
-        if (msg.content === "DKT" || msg.content === "dkt") {
+      if (msg.content === "DKT" || msg.content === "dkt") {
         msg.reply("Cargo setado!")
         msg.member.setNickname('DKT ' + oldUserName)
         msg.member.roles.set(['884924723883024424'])
@@ -166,30 +172,78 @@ client.on('messageCreate',
         msg.delete()
         client.channels.cache.get(`937488247658008616`).send(`<@${msg.member.user.id}>, agora você tem permissão para ver esse e o canal Salas! Se esse jogador não é da ${msg.guild.roles.cache.find(r => r.id === "884924727641133087")}, avise a moderação.`)
 
-      } else if (msg.content === "COACH" || msg.content === "coach"){
+      } else if (msg.content === "LG") {
+        msg.reply("Cargo setado!")
+        msg.member.setNickname('LG ' + oldUserName)
+        msg.member.roles.set(['884924729109131305'])
+        setTimeout(function() {
+
+          client.channels.cache.get(`937488247658008616`).send(`<@${msg.member.user.id}>, agora você tem permissão para ver esse e o canal Salas! Se esse jogador não é da ${msg.guild.roles.cache.find(r => r.id === "884924729109131305")}, avise a moderação.`)
+          msg.delete()
+        }, 1000);
+
+
+
+      } else if (msg.content === "COACH" || msg.content === "coach") {
         msg.reply("Cargo setado!")
         msg.member.setNickname('[COACH] ' + oldUserName)
         msg.member.roles.set(['963190126253596703'])
         msg.delete()
-          
+
       }
     } else {
-      if (msg.content === "ping"){
+      if (msg.content === "ping") {
         msg.reply("pong")
-      }else if(msg.content === "!opensource"){
+      } else if (msg.content === "!opensource") {
         msg.reply("O bot da Gaia Cup é open source! Visite o GITHUB para acessar o código fonte! (https://github.com/MonoDryad/GaiaCup-BOT)")
-      }else if(msg.content === "!tabelaA"){
-        msg.reply({embeds: [tabelaA]})
-      }else if(msg.content === "!tabelaB"){
-        msg.reply({embeds: [tabelaB]})
-      }else if(msg.content === "!tabelaC"){
-        msg.reply({embeds: [tabelaC]})
-      }else if(msg.content === "!tabelaD"){
-        msg.reply({embeds: [tabelaD]})
+      } else if (msg.content === "!tabelaA") {
+        msg.reply({ embeds: [tabelaA] })
+      } else if (msg.content === "!tabelaB") {
+        msg.reply({ embeds: [tabelaB] })
+      } else if (msg.content === "!tabelaC") {
+        msg.reply({ embeds: [tabelaC] })
+      } else if (msg.content === "!tabelaD") {
+        msg.reply({ embeds: [tabelaD] })
+      } else if(msg.content === "!uptime"){
+        msg.reply(`Eu estou vivo já faz ${hr}:${min}:${sec}!`)
       }
     }
   })
 
+timerCycle()
 
+  function timerCycle() {
+  if (stoptime == false) {
+    sec = parseInt(sec);
+    min = parseInt(min);
+    hr = parseInt(hr);
 
+    sec = sec + 1;
+
+    if (sec == 60) {
+      min = min + 1;
+      sec = 0;
+    }
+    if (min == 60) {
+      hr = hr + 1;
+      min = 0;
+      sec = 0;
+    }
+
+    if (sec < 10 || sec == 0) {
+      sec = '0' + sec;
+    }
+    if (min < 10 || min == 0) {
+      min = '0' + min;
+    }
+    if (hr < 10 || hr == 0) {
+      hr = '0' + hr;
+    }
+    
+
+    setTimeout(function() {
+      timerCycle()
+    }, 1000);
+  }
+}
 client.login(process.env['TOKEN']);
