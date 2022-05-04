@@ -81,7 +81,7 @@ const tabelaD = new MessageEmbed()
   .setDescription('Tabela do GRUPO D da Quarta Edição da Gaia Cup')
   .addFields(
     { name: '1º NEO Akihabara - 4/0', value: 'AKH' },
-    { name: '2º Team Suits - 1/3', value: 'TSS' },
+    { name: '2º Orange Kingdom Ming - 1/3', value: 'OKM' },
     { name: '3º Dark Tenacity - 1/3', value: 'DKA' })
   .setTimestamp()
   .setFooter({ text: 'Visite a o site da Gaia Cup', iconURL: 'https://gaiacup.netlify.app' });
@@ -152,9 +152,9 @@ client.on('messageCreate',
         msg.delete()
         client.channels.cache.get(`937488247658008616`).send(`<@${msg.member.user.id}>, agora você tem permissão para ver esse e o canal Salas! Se esse jogador não é da ${msg.guild.roles.cache.find(r => r.id === "884924597990993950")}, avise a moderação.`)
 
-      } else if (msg.content === "TSS" || msg.content === "tss") {
+      } else if (msg.content === "OKM" || msg.content === "okm") {
         msg.reply("Cargo setado!")
-        msg.member.setNickname('TSS ' + oldUserName)
+        msg.member.setNickname('OKM ' + oldUserName)
         msg.member.roles.add(['884924589325557830'])
         msg.delete()
         client.channels.cache.get(`957764577553154158`).send(`<@${msg.member.user.id}>, agora você tem permissão para ver esse e o canal Salas! Se esse jogador não é da ${msg.guild.roles.cache.find(r => r.id === "884924589325557830")}, avise a moderação.`)
